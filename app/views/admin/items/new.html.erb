@@ -8,31 +8,54 @@
         <%= form_with model: @item, url: new_admin_item_path, local:true do |f| %>
 
         <div class = 'form-group row'>
-          <%= f.label :商品画像, class: 'col-2 col-form-label' %>
+          <%= f.label :商品画像, class: 'col-3 col-form-label' %>
           <div class = 'col-6'>
             <%= f.attachment_field :image, class: '' %>
           </div>
         </div>
+
         <div class = 'form-group row'>
-          <%= f.label :商品名, class: 'col-2 col-form-label' %>
+          <%= f.label :商品名, class: 'col-3 col-form-label' %>
           <div class = 'col-6'>
             <%= f.text_field :name, class: 'form-control' %>
           </div>
         </div>
 
         <div class = 'form-group row'>
-          <%= f.label :商品説明, class: 'col-2 col-form-label' %>
+          <%= f.label :商品説明, class: 'col-3 col-form-label' %>
           <div class = 'col-6'>
             <%= f.text_area :introduction, class: 'form-control' %>
           </div>
         </div>
 
         <div class = 'form-group row'>
-          <%= f.label :ジャンル, class: 'col-2 col-form-label' %>
+          <%= f.label :ジャンル, class: 'col-3 col-form-label' %>
           <div class = 'col-6'>
-            <%= f.collection_select :genre, Genre.all, :id, :name, include_blank: "選択して下さい" %>
+            <%= f.collection_select :genre, Genre.all, :id, :name, include_blank: "選択して下さい", class: '' %>
           </div>
         </div>
+
+        <div class = 'form-group row'>
+          <%= f.label :税抜き価格, class: 'col-3 col-form-label' %>
+          <div class = 'col-6'>
+            <%= f.text_field :price, placeholder: '1000', class: 'form-control' %>
+          </div>
+          <%= f.label :円, class: 'col-1 col-form-label' %>
+        </div>
+
+        <div class = 'form-group row'>
+          <%= f.label :販売ステータス, class: 'col-3 col-form-label' %>
+          <div class="col-6">
+            <label><%= f.radio_button :is_active, true %> 販売中</label>
+            <label><%= f.radio_button :is_active, false %> 販売停止中</label>
+          </div>
+        </div>
+        <div class = 'row'>
+          <div class = 'col-10 text-center'>
+            <%= f.submit '新規登録' , class: "btn btn-success btn-lg" %>
+          </div>
+        </div>
+
 
         <% end %>
       </form>
