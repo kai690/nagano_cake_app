@@ -1,3 +1,4 @@
+<p class = 'text-success'><%= notice %></p>
 <div class = 'container'>
   <h2 class = 'col-4 bg-light mt-5 text-center'>商品一覧</h2>
 
@@ -14,8 +15,9 @@
             <th>ステータス</th>
           </tr>
         </thead>
-        <% @items.each do |item| %>
+
         <tbody>
+          <% @items.each do |item| %>
           <tr>
             <th><%= item.id %></th>
             <th><%= item.name %></th>
@@ -24,8 +26,8 @@
             <th><%= item.is_active ? '販売中' : '販売停止中' %></th>
           </tr>
         </tbody>
+        <% end %>
       </table>
-      <% end %>
     </div>
   </div>
 </div>
