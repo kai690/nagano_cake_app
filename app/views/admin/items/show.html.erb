@@ -21,7 +21,7 @@
           </tr>
           <tr>
             <th class = 'col-2'>税込み価格<br>(税抜き価格)</th>
-            <td class = col-6><%= @item.price*1.1 %>(<%= @item.price %>)</td>
+            <td class = col-6><%= @item.price*1.1 %>(<%= @item.price %>)円</td>
           </tr>
           <tr>
             <th class = 'col-2'>販売ステータス</th>
@@ -33,8 +33,7 @@
       </table>
     </div>
   </div>
-  <div class = 'row '>
-      <%= link_to '編集する', edit_admin_item_path(params[:id]), class: 'btn btn-success ' %>
-    </div>
+  <div class = 'row mt-5'>
+      <%= link_to '編集する', edit_admin_item_path(params[:id]), class: 'btn btn-success' %>
   </div>
 </div>
