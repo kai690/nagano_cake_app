@@ -1,5 +1,5 @@
 class Admin::ItemsController < ApplicationController
-
+layout 'admin'
   def index
     @items = Item.all
   end
@@ -22,6 +22,8 @@ class Admin::ItemsController < ApplicationController
   end
 
   def edit
+    @item = Item.find(params[:id])
+
   end
 
   def update

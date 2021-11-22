@@ -4,7 +4,7 @@
 
   <div class = 'row mt-5'>
     <div class = 'col-10 mx-auto'>
-      <table class = 'table'>
+      <table class = 'table '>
 
         <thead>
           <tr>
@@ -20,7 +20,7 @@
           <% @items.each do |item| %>
           <tr>
             <th><%= item.id %></th>
-            <th><%= item.name %></th>
+            <th class = ''><%= link_to item.name, admin_item_path(item.id) %></th>
             <th><%= item.price %></th>
             <th><%= item.genre.name %></th>
             <th><%= item.is_active ? '販売中' : '販売停止中' %></th>
