@@ -18,7 +18,7 @@
 
 
           <div class = 'navbar-nav ml-auto'>
-            <% if admin_signed_in? %>
+            <% if customer_signed_in? %>
 
             <li class = 'nav-item'>
               <%= link_to '商品一覧', root_path, class: 'nav-link text-dark' %>
@@ -51,11 +51,11 @@
             </li>
 
             <li class = 'nav-item'>
-              <%= link_to '新規登録', root_path, class: 'nav-link text-dark' %>
+              <%= link_to '新規登録', new_customer_registration_path, class: 'nav-link text-dark' %>
             </li>
 
             <li class = 'nav-item'>
-              <%= link_to 'ログイン', root_path, class: 'nav-link text-dark' %>
+              <%= link_to 'ログイン', new_customer_session_path, class: 'nav-link text-dark' %>
             </li>
             <% end %>
           </div>

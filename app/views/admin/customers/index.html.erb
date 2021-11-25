@@ -1,6 +1,6 @@
 <p class = 'text-success'><%= notice %></p>
 <div class = 'container'>
-  <h2 class = 'col-4 bg-light mt-5 text-center'>商品一覧</h2>
+  <h2 class = 'col-4 bg-light mt-5 text-center'>会員一覧</h2>
 
   <div class = 'row mt-5'>
     <div class = 'col-10 mx-auto'>
@@ -16,13 +16,12 @@
         </thead>
 
         <tbody>
-          <% @items.each do |item| %>
+          <% @customers.each do |customer| %>
           <tr>
-            <th><%= item.id %></th>
-            <th class = ''><%= link_to item.name, admin_item_path(item.id) %></th>
-            <th><%= item.price %></th>
-            <th><%= item.genre.name %></th>
-            <th><%= item.is_active ? '販売中' : '販売停止中' %></th>
+            <th><%= customer.id %></th>
+            <th class = ''><%= link_to customer.last_name + customer.first_name, admin_customer_path(customer.id) %></th>
+            <th><%= customer.email %></th>
+            <th><%= customer.is_active ? '有効' : '退会' %></th>
           </tr>
         </tbody>
         <% end %>
