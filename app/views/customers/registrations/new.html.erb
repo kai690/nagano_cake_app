@@ -8,23 +8,40 @@
             <p>名前</p>
             <p>フリガナ</p>
           </div>
-      <div class = 'mx-auto col-5'>
+      <div class = 'mx-auto col-7'>
         <div class = 'form'>
-          
-          <div class="form-group">
+
+          <div class = 'row'>
+
+            <div class="form-group">
             <%= f.label :email %>
             <%= f.email_field :last_name, autofocus: true, autocomplete: "email", class: 'form-control' %>
           </div>
-          
+
           <div class="form-group">
             <%= f.label :email %>
             <%= f.email_field :first_name, autofocus: true, autocomplete: "email", class: 'form-control' %>
           </div>
-          
-          <div class="form-group">
-            <%= f.label :email %>
-            <%= f.email_field :email, autofocus: true, autocomplete: "email", class: 'form-control' %>
+
           </div>
+
+
+
+          <div class = 'row'>
+
+            <div class="form-group">
+            <%= f.label :email %>
+            <%= f.email_field :last_name_kana, autofocus: true, autocomplete: "email", class: 'form-control' %>
+            </div>
+
+            <div class="form-group">
+            <%= f.label :email %>
+            <%= f.email_field :first_name_kana, autofocus: true, autocomplete: "email", class: 'form-control' %>
+          </div>
+
+          </div>
+
+
 
 
           <div class="form-group">
