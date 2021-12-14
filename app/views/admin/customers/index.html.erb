@@ -19,7 +19,8 @@
           <% @customers.each do |customer| %>
           <tr>
             <th><%= customer.id %></th>
-            <th class = ''><%= link_to customer.last_name + customer.first_name, admin_customer_path(customer.id) %></th>
+            <th><%= link_to customer.first_name, admin_customer_path(customer.id) %></th>
+            <th><%= customer.first_name %></th>
             <th><%= customer.email %></th>
             <th><%= customer.is_active ? '有効' : '退会' %></th>
           </tr>
