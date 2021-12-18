@@ -15,7 +15,41 @@
       </table>
     </div>
     <div class = 'col-8 offset-md-1'>
-      
+      <div class = 'container'>
+        <div class = 'row mt-5'>
+          <div class = 'col-12 mt-10'>
+            <h3>ようこそ、ながのcakeへ</h3>
+            <h3>このサイトはケーキ販売のECサイトになります。</h3>
+          </div>
+        </div>
+      </div>
+
+      <div class = 'container'>
+        <h2 class = 'mt-5'>新着商品</h2>
+        <div class = 'row mt-2'>
+
+          <% @items.each do |item| %>
+          <div class = 'col-3'>
+            <div class = 'row'>
+              <%= attachment_image_tag item, :image, :fill, 100, 100, fallback: "no_image.jpg"%>
+            </div>
+            <div class = 'row'>
+              <%= item.name %>
+            </div>
+            <div class = 'row'>
+              ￥<%= item.price %>
+            </div>
+
+          </div>
+          <% end %>
+          <div class = 'col-12 text-right'>
+            <%= link_to "全ての商品を見る＞", items_path %>
+          </div>
+
+        </div>
+      </div>
+
+
     </div>
   </div>
 </div>

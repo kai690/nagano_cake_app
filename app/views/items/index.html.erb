@@ -14,9 +14,28 @@
         <% end %>
       </table>
     </div>
+
     <div class = 'col-8 offset-md-1'>
-      <h2>商品一覧</h2>
-      
+      <div class = 'container'>
+        <h2 class = 'mt-5'>商品一覧</h2>
+        <div class = 'row mt-2'>
+
+          <% @items.each do |item| %>
+          <div class = 'col-3'>
+            <div class = 'row'>
+              <%= attachment_image_tag item, :image, :fill, 100, 100, fallback: "no_image.jpg"%>
+            </div>
+            <div class = 'row'>
+              <%= item.name %>
+            </div>
+            <div class = 'row'>
+              ￥<%= item.price %>
+            </div>
+
+          </div>
+          <% end %>
+        </div>
+      </div>
     </div>
   </div>
 </div>
