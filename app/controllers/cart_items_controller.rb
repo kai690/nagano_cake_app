@@ -1,4 +1,8 @@
 class CartItemsController < ApplicationController
+  def index
+    # @customer = current_customer.id
+    @cart_items = current_customer.cart_items
+  end
 
   def create
     cart_item = CartItem.new(cart_item_params)
