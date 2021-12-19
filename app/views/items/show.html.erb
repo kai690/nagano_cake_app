@@ -31,7 +31,7 @@
 
       <div class = 'row'>
         <div class = 'col-5'>
-          <h3>￥<%= @item.price * 1.1 %>（税込み）</h3>
+          <h3>￥<%= (@item.price * 1.1).round %>（税込み）</h3>
         </div>
       </div>
       <div class = 'row'>
