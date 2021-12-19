@@ -1,6 +1,5 @@
 class CartItemsController < ApplicationController
   def index
-    # @customer = current_customer.id
     @cart_items = current_customer.cart_items
   end
 
