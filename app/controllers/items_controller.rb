@@ -4,7 +4,9 @@ class ItemsController < ApplicationController
     @genres = Genre.all
   end
   def show
-    @genres = Genre.all
     @item = Item.find(params[:id])
+    @genres = Genre.all
+    @cart_item = CartItem.new
   end
+
 end

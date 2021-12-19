@@ -12,7 +12,8 @@ Rails.application.routes.draw do
 }
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root to: "homes#top"
-  resources :items
+  resources :items, only: [:show]
+  resources :cart_items, only: [:create]
   # 管理者側
   namespace :admin do
 
