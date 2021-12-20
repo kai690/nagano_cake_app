@@ -1,0 +1,35 @@
+<div class = 'container'>
+  <div class = row>
+    <div class = 'col-3'>
+      <h2 class = 'bg-light mt-5 text-center'>配送先編集</h2>
+    </div>
+  </div>
+  <div class = 'row'>
+    <div class = 'col-12'>
+      <table class = 'table'>
+        <%= form_with model:@address, local:true do |f| %>
+        <tbody>
+          <tr>
+            <td>郵便番号</td>
+            <td><%= f.text_field :postal_code %></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>住所</td>
+            <td colspan = '2'><%= f.text_field :address, class: 'form-control' %></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>宛名</td>
+            <td><%= f.text_field :name %></td>
+            <td></td>
+            <td><%= f.submit '変更内容を保存', class: 'btn btn-success'%></td>
+          </tr>
+        </tbody>
+        <% end %>
+      </table>
+    </div>
+  </div>
+</div>

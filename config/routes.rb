@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root to: "homes#top"
   resources :items, only: [:index, :show]
-  resources :cart_items, only: [:index, :create]
+  resources :cart_items, only: [:index, :create, :update]
   resources :orders, only: [:index, :new, :create, :show]
   resources :customers
   resources :addresses

@@ -1,7 +1,7 @@
 class CartItemsController < ApplicationController
   def index
     @cart_items = current_customer.cart_items
-    
+
   end
 
   def create
@@ -12,6 +12,11 @@ class CartItemsController < ApplicationController
     else
       redirect_to item_path(@item)
     end
+  end
+  def update
+    cart_item = CartItem.find(params[:id])
+    cart_item.update(cart_item_params)
+    redirect_to cart_items_path
   end
 
   private
