@@ -14,6 +14,11 @@ Rails.application.routes.draw do
   root to: "homes#top"
   resources :items, only: [:index, :show]
   resources :cart_items, only: [:index, :create]
+  resources :orders, only: [:index, :new, :create, :show]
+  resources :customers
+  resources :addresses
+  get "unsubscribe" => "customers#unsubscribe"
+  post "deactivate" => "customers#deactivate"
   # 管理者側
   namespace :admin do
 

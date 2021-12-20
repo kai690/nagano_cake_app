@@ -30,11 +30,12 @@
         <td><%= (cart_item.item.price * 1.1).round %></td>
 
         <td>
-          <%= form_with model:cart_item, local:true do |f| %>
-          <%= f.select :amount, [["１", "1"], ["２", "2"], ["３", "3"], ["４", "4"], ["５", "5"]], include_blank: "数量選択" %>
-          <%= f.hidden_field :item_id, :value => cart_item.item.id %>
-          <%= f.submit '変更', class: 'btn btn-success' %>
-          <% end %>
+          <%= cart_item.amount %>
+          <%# form_with model:cart_item, local:true do |f| %>
+          <%# f.select :amount, [["１", "1"], ["２", "2"], ["３", "3"], ["４", "4"], ["５", "5"]], include_blank: "数量選択" %>
+          <%# f.hidden_field :item_id, :value => cart_item.item.id %>
+          <%# f.submit '変更', class: 'btn btn-success' %>
+          <%# end %>
         </td>
 
         <td><%= (cart_item.amount * cart_item.item.price * 1.1).round %></td>
@@ -42,5 +43,25 @@
       <% end %>
     </tbody>
   </table>
+
+  <div class = 'row justify-content-between'>
+    <div class = 'col-2'>
+      <%= link_to '買い物を続ける', items_path, class: 'btn btn-primary' %>
+    </div>
+    <div class = 'col-5'>
+      <table class = 'table'>
+        <tr>
+          <th class = 'table-secondary'>合計金額</th>
+          <td>aaa</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+
+  <div class = 'row justify-content-center'>
+    <div class = 'col-4 '>
+      <%= link_to "情報入力へ進む", new_order_path, class: 'btn btn-success btn-lg text-center' %>
+    </div>
+  </div>
 
 </div>

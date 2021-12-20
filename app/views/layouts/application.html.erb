@@ -21,7 +21,7 @@
             <% if customer_signed_in? %>
 
             <li class = 'nav-item'>
-              <%= link_to 'マイページ', root_path, class: 'nav-link text-dark' %>
+              <%= link_to 'マイページ', customer_path(current_customer), class: 'nav-link text-dark' %>
             </li>
 
             <li class = 'nav-item'>

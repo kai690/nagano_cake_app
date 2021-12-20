@@ -1,0 +1,71 @@
+<div class = 'container'>
+  <div class = 'row'>
+    <div class = 'col-3'>
+      <h3 class = 'text-center mt-5'>マイページ</h3>
+    </div>
+  </div>
+  <div class = 'row mt-5'>
+    <div class = 'col-3'>
+      <h3>登録情報</h3>
+    </div>
+    <div class = 'col-3'>
+      <%= link_to '編集する', edit_customer_path(current_customer), class: 'btn btn-success' %>
+    </div>
+  </div>
+
+    <div class = 'row mt-5'>
+      <div class = 'col-12'>
+        <table class = 'table'>
+          <tbody>
+            <tr>
+              <th>氏名</th>
+              <td><%= current_customer.last_name %><%= current_customer.first_name %></td>
+              <td></td>
+            </tr>
+            <tr>
+              <th>カナ</th>
+              <td><%= current_customer.last_name_kana %><%= current_customer.first_name_kana %></td>
+              <td></td>
+            </tr>
+            <tr>
+              <th>郵便番号</th>
+              <td><%= current_customer.postal_code %></td>
+            </tr>
+            <tr>
+              <th>住所</th>
+              <td><%= current_customer.address %></td>
+              <td></td>
+            </tr>
+            <tr>
+              <th>電話番号</th>
+              <td><%= current_customer.telephone_number %></td>
+              <td></td>
+            </tr>
+            <tr>
+              <th>メールアドレス</th>
+              <td><%= current_customer.email %></td>
+              <td></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class = 'row'>
+      <div class = 'col-3'>
+        <h2>配送先</h2>
+      </div>
+      <div class = 'col-3'>
+        <%= link_to '一覧を見る', addresses_path, class: 'btn btn-primary' %>
+      </div>
+    </div>
+
+    <div class = 'row mt-2'>
+      <div class = 'col-3'>
+        <h2>注文履歴</h2>
+      </div>
+      <div class = 'col-3'>
+        <%= link_to '一覧を見る', orders_path, class: 'btn btn-primary' %>
+      </div>
+    </div>
+
+</div>
