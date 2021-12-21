@@ -15,6 +15,7 @@ Rails.application.routes.draw do
   resources :items, only: [:index, :show]
   resources :cart_items, only: [:index, :create, :update]
   resources :orders, only: [:index, :new, :create, :show]
+  post "orders/confirm" => "orders#confirm"
   resources :customers
   resources :addresses
   get "unsubscribe" => "customers#unsubscribe"
