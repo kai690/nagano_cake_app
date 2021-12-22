@@ -1,7 +1,7 @@
 class CartItemsController < ApplicationController
   def index
     @cart_items = current_customer.cart_items
-
+    @total_price = 0
   end
 
   def create
@@ -17,6 +17,17 @@ class CartItemsController < ApplicationController
     cart_item = CartItem.find(params[:id])
     cart_item.update(cart_item_params)
     redirect_to cart_items_path
+  end
+
+  def destroy
+    cart_item = CartItem.find(params[:id])
+    cart_item.destroy
+    redirect_to cart_items_path, notice:'商品が１件削除されました'
+  end
+
+  def destroy_all
+    current_customer.cart_items.destroy_all
+    redirect_to cart_items_path, notice: 'カート商品を全て削除しました'
   end
 
   private
