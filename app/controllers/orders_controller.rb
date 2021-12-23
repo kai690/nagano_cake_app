@@ -6,10 +6,10 @@ class OrdersController < ApplicationController
   def confirm
     @postage = 800
     @total_price = 0
-    @billing_amount = @total_price + @postage
     @cart_items = current_customer.cart_items
-    @select_address = params[:select_address].to_i
+    @select_address = params[:order][:select_address].to_i
     @order = Order.new(order_params)
+    @billing_amount = @total_price + @postage
 
     if @select_address == 0
       @order.address = current_customer.address

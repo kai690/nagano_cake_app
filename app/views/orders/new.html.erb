@@ -60,7 +60,7 @@
 
       </div>
       <div class = 'col-10'>
-        <%= f.collection_select :address, current_customer.addresses, :id, :view_address_and_name, include_blank: "選択して下さい", class: 'dropdown' %>
+        <%= f.collection_select :address_id, current_customer.addresses, :id, :view_address_and_name, include_blank: "選択して下さい", class: 'dropdown' %>
       </div>
     </div>
 

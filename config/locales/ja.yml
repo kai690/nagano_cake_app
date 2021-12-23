@@ -1,0 +1,6 @@
+ja:
+  enums:
+    order:
+      payment_method: # カラム名
+        card: 'クレジットカード' # enumの値
+        bank: '銀行振込' # enumの値
