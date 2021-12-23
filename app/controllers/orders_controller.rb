@@ -10,6 +10,8 @@ class OrdersController < ApplicationController
     @select_address = params[:order][:select_address].to_i
     @order = Order.new(order_params)
     @billing_amount = @total_price + @postage
+    @order.billing_amount = @billing_amount
+    @order.customer_id = current_customer.id
 
     if @select_address == 0
       @order.address = current_customer.address
@@ -25,7 +27,16 @@ class OrdersController < ApplicationController
   end
 
   def create
-
+    current_customer.cart_items.each do |cart_item|
+      order_item = OrderItem.new
+      order_item.item_id = cart_item.id
+      order_item.order_id = @order.id
+      order_item.amount = cart_item.amount
+      order_item.purchase_price = cart_item.price
+      order_item.save
+    end
+    @order.save
+    redirect_to orderstanks_path
   end
 
 
