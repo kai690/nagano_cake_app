@@ -12,17 +12,16 @@ class OrdersController < ApplicationController
     @order = Order.new(order_params)
 
     if @select_address == 0
-      @address = current_customer.address
+      @order.address = current_customer.address
+      @order.postal_code = current_customer.postal_code
+      @order.name = current_customer.last_name + current_customer.first_name
     elsif @select_address == 1
       @address = Address.find(params[:order][:address_id])
-    elsif @select_address == 2
-      @address = order_params
+      @order.address = @address.address
+      @order.postal_code = @address.postal_code
+      @order.name = @address.name
     end
 
-    @order.postal_code = @address.postal_code
-    @order.address = @address.address
-    @order.name = @address.first_name + @address.last_name
-    
   end
 
   def create
@@ -33,6 +32,6 @@ class OrdersController < ApplicationController
 
   private
   def order_params
-    params.require(:order).permit(:payment_method, :address, :postal_code)
+    params.require(:order).permit(:payment_method, :address, :postal_code, :name)
   end
 end

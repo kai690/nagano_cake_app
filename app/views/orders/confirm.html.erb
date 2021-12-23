@@ -1,0 +1,75 @@
+<p class = 'text-success'><%= notice %></p>
+<div class = 'container'>
+  <div class = 'row mt-5'>
+    <div class = 'col-3'>
+      <h3 class = 'text-center'>注文情報確認</h3>
+    </div>
+  </div>
+  <div class = 'row'>
+    <div class = 'col-9'>
+      <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">商品名</th>
+        <th scope="col">単価（税込み）</th>
+        <th scope="col">数量</th>
+        <th scope="col">小計</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @cart_items.each do |cart_item| %>
+      <tr>
+        <td>
+          <%= link_to item_path(cart_item.item) do %>
+            <%= attachment_image_tag cart_item.item, :image, :fill, 60, 40, fallback: "no_image.jpg" %>
+            <%= cart_item.item.name %>
+          <% end %>
+        </td>
+        <td><%= (cart_item.item.with_tax_price).round %></td>
+
+        <td>
+          <%= cart_item.amount %>
+        </td>
+
+        <td><%= cart_item.subtotal %></td>
+        <% @total_price += cart_item.subtotal %>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+    </div>
+    <div class = 'col-3'>
+      <table class = 'table'>
+        <tbody>
+          <tr>
+            <td>送料</td>
+            <td><%= @postage %></td>
+          </tr>
+          <tr>
+            <td>商品合計</td>
+            <td><%= @total_price %></td>
+          </tr>
+          <tr>
+            <td>請求合計</td>
+            <td><%= @billing_amount %></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class = 'row'>
+    <div class = 'col-12'>
+      <table class = 'table'>
+        <tr>
+          <th>支払方法</th>
+          <td><%= @order.payment_method %></td>
+        </tr>
+        <tr>
+          <tr>お届け先</tr>
+          <td><%= @order.address %></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>
