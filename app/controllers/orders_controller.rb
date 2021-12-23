@@ -36,7 +36,7 @@ class OrdersController < ApplicationController
       order_item.save
     end
     @order.save
-    redirect_to orderstanks_path
+    redirect_to orders_tanks_path
   end
 
 

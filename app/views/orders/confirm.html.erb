@@ -80,9 +80,11 @@
       </table>
     </div>
   </div>
-  <div class = 'row'>
+  <div class = 'row justify-content-center'>
     <div class = 'col-3'>
-      <%= link_to 
+      <%= form_with url:orders_path, local:true do |f| %>
+      <%= f.submit '注文を確定する', class: 'btn btn-success' %>
+      <% end %>
     </div>
   </div>
 </div>
