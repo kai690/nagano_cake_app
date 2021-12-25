@@ -1,4 +1,8 @@
 class OrdersController < ApplicationController
+  def index
+    @orders = current_customer.orders
+  end
+
   def new
     @order = Order.new
   end
@@ -27,8 +31,10 @@ class OrdersController < ApplicationController
   end
 
   def create
-    @order = Order.new
+    @order = Order.new(order_params)
+    @order.customer_id = current_customer.id
     @order.save
+
     current_customer.cart_items.each do |cart_item|
       order_item = OrderItem.new
       order_item.item_id = cart_item.id
@@ -37,14 +43,16 @@ class OrdersController < ApplicationController
       order_item.purchase_price = cart_item.item.price
       order_item.save
     end
+    current_customer.cart_item.destroy_all
 
     redirect_to orders_thanks_path
+
   end
 
 
 
   private
   def order_params
-    params.require(:order).permit(:payment_method, :address, :postal_code, :name)
+    params.require(:order).permit(:payment_method, :address, :postal_code, :name, :billing_amount, :postage)
   end
 end
