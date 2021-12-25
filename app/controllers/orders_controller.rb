@@ -3,6 +3,11 @@ class OrdersController < ApplicationController
     @orders = current_customer.orders
   end
 
+  def show
+    @order = Order.find(params[:id])
+    # @total = @order.order_items.inject(0) { |sum, purchase_price| sum + order_item.subtotal }
+  end
+
   def new
     @order = Order.new
   end
@@ -13,7 +18,7 @@ class OrdersController < ApplicationController
     @cart_items = current_customer.cart_items
     @select_address = params[:order][:select_address].to_i
     @order = Order.new(order_params)
-    @billing_amount = @total_price + @postage
+    # @billing_amount = @total_price + @postage
     @order.billing_amount = @billing_amount
     @order.customer_id = current_customer.id
 
@@ -37,13 +42,13 @@ class OrdersController < ApplicationController
 
     current_customer.cart_items.each do |cart_item|
       order_item = OrderItem.new
-      order_item.item_id = cart_item.id
+      order_item.item_id = cart_item.item_id
       order_item.order_id = @order.id
       order_item.amount = cart_item.amount
-      order_item.purchase_price = cart_item.item.price
+      order_item.purchase_price = cart_item.item.with_tax_price
       order_item.save
     end
-    current_customer.cart_item.destroy_all
+    current_customer.cart_items.destroy_all
 
     redirect_to orders_thanks_path
 
