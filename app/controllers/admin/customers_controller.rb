@@ -25,6 +25,7 @@ layout 'admin'
   def show_order
     @customer = Customer.find(params[:id])
     @orders = @customer.orders
+    @amount = 0
   end
 
   private
