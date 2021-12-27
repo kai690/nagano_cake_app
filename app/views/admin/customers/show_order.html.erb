@@ -27,6 +27,7 @@
               <% @amount += order_item.amount %>
             <% end %>
             <th><%= @amount %></th>
+            <% @amount = 0 %>
           </tr>
         </tbody>
         <% end %>

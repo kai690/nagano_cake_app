@@ -14,7 +14,7 @@
     <div class = 'col-3 text-center'>
       <%= form_with url:deactivate_path, local:true do |f| %>
       <%= f.hidden_field :is_active, :value => false %>
-      <%= f.submit '退会する', class: 'btn btn-danger' %>
+      <%= f.submit '退会する', class: 'btn btn-danger', data: { confilm: "本当に退会しますか？" } %>
       <% end %>
     </div>
   </div>
